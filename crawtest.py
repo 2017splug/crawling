@@ -21,6 +21,5 @@ def get_rank():
 #	print(keywords.a.text)
 #	webname = str(keywords.a.text)
 #	f.write(webname+"\n")
-
 #f.close()
 
