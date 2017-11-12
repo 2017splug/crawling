@@ -4,6 +4,8 @@
 from bs4 import BeautifulSoup
 import requests
 import urllib
+import os
+import shutil
 
 def get_html(url):
 	_html = ""
@@ -13,8 +15,16 @@ def get_html(url):
 	return _html
 
 def download_image(url, name):
+	dirname = 'webtoon'
+	if not os.path.isdir('webtoon'):
+		os.mkdir('webtoon')
 	file_name = name+'.jpg'
-	urllib.request.urlretrieve(url, file_name)
+	for file in os.listdir("../test"):
+		if file.endswith(".jpg"):
+			shutil.move(file, '../test/webtoon')
+
+
+
 
 def find_new_webtoon():
 	URL = "http://comic.naver.com/webtoon/weekday.nhn"
@@ -27,4 +37,5 @@ def find_new_webtoon():
 		srcurl = keywords.a.img.get('src')
 		name = keywords.a.img.get('alt')
 		download_image(srcurl, name)
-		
+
+find_new_webtoon()
