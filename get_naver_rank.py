@@ -18,16 +18,18 @@ def get_rank():
 	f.close()
 	
 	dirname = 'naver_rank'
-	if not os.path.isdir('naver_rank'):
-		os.mkdir('naver_rank')
+	if not os.path.isdir('../naver_rank'):
+		os.makedirs('../naver_rank')
 
-	for file_list22 in os.listdir('../test/naver_rank'):
+	for file_list22 in os.listdir('../naver_rank'):
 		if os.path.exists('naver_rank.txt'):
 			os.remove('naver_rank.txt')
 
-	for file_list in os.listdir('../test'): 
+	for file_list in os.listdir(os.getcwd()): 
 		if os.path.exists('naver_rank.txt'):
-			shutil.move('naver_rank.txt', '../test/naver_rank')
+			shutil.move('./naver_rank.txt', '../naver_rank')
+
+	print("naver_rank폴더로 네이버 실시간 검색어  가져옴")
 
 get_rank()
 

@@ -28,17 +28,17 @@ def find_title():
 	f.close()
 
 	dirname = 'webtoon_name'
-	if not os.path.isdir('webtoon_name'):
-		os.mkdir('webtoon_name')
+	if not os.path.isdir('../webtoon_name'):
+		os.mkdir('../webtoon_name')
 
-	for file_list2 in os.listdir('../test/webtoon_name'):
+	for file_list2 in os.listdir('../webtoon_name'):
 		if os.path.exists('webtoon.txt'):
 			os.remove('webtoon.txt')
 
 
-	for file_list in os.listdir('../test'):
+	for file_list in os.listdir(os.getcwd()):
 		if os.path.exists('webtoon.txt'):
-			shutil.move('webtoon.txt', '../test/webtoon_name')
-	
+			shutil.move('webtoon.txt', '../webtoon_name')
+	print("webtoon_name 폴더로 업데이트 된 네이버 웹툰 이름 가져옴")
 find_title()
 
